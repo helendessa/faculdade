@@ -152,10 +152,15 @@ void gaussJordan(int n, long double A[MAX][MAX+1]) {
         }
     }
 
-    /* Calcula a solucao final */
-    printf("Solucao do sistema:\n");
-    for (int i = 0; i < n; i++)
-        printf("x%d = %15.10Lf\n", ordem[i] + 1, A[i][n]);
+    /* Impressao da solucao */
+    printf("S = {(");
+    for (int i = 0; i < n; i++) {
+        if (i > 0) {
+            printf("; ");
+        }
+        printf("%Lf", A[i][n]);
+    }
+    printf(")}\n");
 }
 
 int main() {
