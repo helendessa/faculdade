@@ -1,43 +1,40 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include <stdbool.h>
 
-#define MAX 20 // Tamanho maximo da matriz
-#define TOL 1e-10 // Tolerancia para lidar com valores proximos de zero
+#define MAX 20 // Tamanho máximo da matriz
+#define TOL 1e-10 // Tolerância para lidar com valores próximos de zero
+
+bool spd = true; // Variável global para rastrear se o sistema é SPD
 
 /* Leitura do arquivo */
 void lerEntrada(const char *nomeArquivo, int *n, long double A[MAX][MAX+1]) {
-    /* Verifica erro na leitura */
     FILE *file = fopen(nomeArquivo, "r");
     if (!file) {
         printf("Erro ao abrir o arquivo");
-        exit(EXIT_FAILURE); // Para nao entrar na proxima funcao se a leitura da entrada der erro
+        exit(EXIT_FAILURE);
     }
 
-    /* Primeiro valor eh n, entao faz leitura dele */
     fscanf(file, "%d", n);
 
-    /* Leitura dos coeficientes */
     for (int i = 0; i < *n; i++) {
         for (int j = 0; j < *n; j++)
             fscanf(file, "%Lf", &A[i][j]);
     }
 
-    /* Leitura dos termos independentes */
     for (int i = 0; i < *n; i++)
         fscanf(file, "%Lf", &A[i][*n]);
 
     fclose(file);
 }
 
-/* Impressao da matriz */
-void imprimirMatriz(int n, long double A[MAX][MAX+1], int ordem[MAX], int iteracao) {
-    printf("Iteracao %d:\n", iteracao);
+/* Impressão da matriz */
+void imprimirMatriz(int n, long double A[MAX][MAX+1], int iteracao) {
+    printf("Iteração %d:\n", iteracao);
     for (int i = 0; i < n; i++) {
-        printf("Linha para x%d: ", ordem[i] + 1);
         for (int j = 0; j <= n; j++)
             printf("%15.10Lf ", A[i][j]);
-
         printf("\n");
     }
     printf("\n");
@@ -59,10 +56,51 @@ void trocarColunas(long double A[MAX][MAX+1], int ordem[MAX], int n, int i, int 
         A[k][i] = A[k][j];
         A[k][j] = temp;
     }
-    /* Atualiza o vetor de ordem para identificar as trocas */
     int temp = ordem[i];
     ordem[i] = ordem[j];
     ordem[j] = temp;
+}
+
+/* Verifica se a linha é toda zero exceto o termo independente */
+bool linhaTodaZero(int n, long double A[MAX][MAX+1], int linha) {
+    for (int j = 0; j < n; j++) {
+        if (fabsl(A[linha][j]) > TOL) {
+            return false;
+        }
+    }
+    return true;
+}
+
+/* Pivotamento completo */
+bool pivotamento(int n, long double A[MAX][MAX+1], int ordem[MAX], int j) {
+    int maxLinha = j, maxColuna = j;
+    for (int i = j; i < n; i++) {
+        for (int k = j; k < n; k++) {
+            if (fabsl(A[i][k]) > fabsl(A[maxLinha][maxColuna])) {
+                maxLinha = i;
+                maxColuna = k;
+            }
+        }
+    }
+
+    if (fabsl(A[maxLinha][maxColuna]) < TOL) {
+        if (linhaTodaZero(n, A, maxLinha)) {
+            if (fabsl(A[maxLinha][n]) > TOL)
+                printf("Sistema Impossível (SI)\n");
+            else
+                printf("Sistema Possível Indeterminado (SPI)\n");
+        }
+        spd = false;
+        return false;
+    }
+
+    if (maxLinha != j)
+        trocarLinhas(A, n, j, maxLinha);
+
+    if (maxColuna != j)
+        trocarColunas(A, ordem, n, j, maxColuna);
+
+    return true;
 }
 
 /* Gauss-Jordan */
@@ -71,106 +109,45 @@ void gaussJordan(int n, long double A[MAX][MAX+1]) {
     for (int i = 0; i < n; i++)
         ordem[i] = i;
 
-    imprimirMatriz(n, A, ordem, 0);
+    imprimirMatriz(n, A, 0);
 
-    /* Pivotamento */
-    for (int j = 0; j < n; j++) { // Le cada coluna para identificar o valor maximo de cada uma
-        int maxLinha = j, maxColuna = j;
-        for (int i = j; i < n; i++) {
-            for (int k = j; k < n; k++) {
-                if (fabsl(A[i][k]) > fabsl(A[maxLinha][maxColuna])) {
-                    maxLinha = i; // Atualiza a linha com o valor maximo
-                    maxColuna = k; // Atualiza a coluna com o valor maximo
-                }
-            }
-        }
-
-        /* Verifica se o maior elemento encontrado eh nulo ou proximo de zero */
-        if (fabsl(A[maxLinha][maxColuna]) < TOL) {
-            /* Verifica se eh SI ou SPI */
-            int todosZeros = 1;
-            for (int k = 0; k < n; k++) {
-                if (fabsl(A[maxLinha][k]) > TOL) {
-                    todosZeros = 0;
-                    break;
-                }
-            }
-
-            /* Se todos os coeficientes forem 0 */
-            if (todosZeros && fabsl(A[maxLinha][n]) > TOL) { // Se b != 0, entao SI
-                printf("Sistema Impossivel (SI)\n");
-            } else if (todosZeros && fabsl(A[maxLinha][n]) < TOL) { // Se b = 0, entao SPI
-                printf("Sistema Possivel Indeterminado (SPI)\n");
-            } else {
-                printf("Sistema Impossivel (SI)\n");
-            }
+    for (int j = 0; j < n; j++) {
+        if (!pivotamento(n, A, ordem, j)) {
             return;
         }
 
-        /* Pivoamento de novo */
-        if (maxLinha != j)
-            trocarLinhas(A, n, j, maxLinha);
-
-        if (maxColuna != j)
-            trocarColunas(A, ordem, n, j, maxColuna);
-
-        /* Divide a linha pivo pelo elemento pivo */
         long double pivo = A[j][j];
         for (int k = 0; k <= n; k++)
             A[j][k] /= pivo;
 
-        /* Armazena a linha pivo temporariamente para fazer as manipulacoes */
-        long double L_j[MAX + 1];
-        for (int k = 0; k <= n; k++)
-            L_j[k] = A[j][k];
-
-        /* Elimina os elementos acima e abaixo do pivo */
         for (int i = 0; i < n; i++) {
             if (i != j) {
-                long double fator = A[i][j]; // Calcula o fator de eliminacao
+                long double fator = A[i][j];
                 for (int k = 0; k <= n; k++)
-                    A[i][k] -= fator * L_j[k]; // Subtrai a linha do pivo escalonada
+                    A[i][k] -= fator * A[j][k];
             }
         }
 
-        /* Imprime a matriz apos a eliminacao na coluna atual */
-        imprimirMatriz(n, A, ordem, j + 1);
+        imprimirMatriz(n, A, j + 1);
     }
 
-    /* Verifica se eh SPI novamente */
-    for (int i = 0; i < n; i++) {
-        int todosZeros = 1;
-        for (int j = 0; j < n; j++) {
-            if (fabsl(A[i][j]) > TOL) {
-                todosZeros = 0;
-                break;
-            }
+    if (spd) {
+        printf("Sistema Possível e Determinado (SPD)\n");
+        printf("S = {(");
+        for (int i = 0; i < n; i++) {
+            if (i > 0)
+                printf("; ");
+            printf("%Lf", A[i][n]);
         }
-        if (todosZeros && fabsl(A[i][n]) < TOL) {
-            printf("Sistema Possivel Indeterminado (SPI)\n");
-            return;
-        }
+        printf(")}\n");
     }
-
-    /* Impressao da solucao */
-    printf("S = {(");
-    for (int i = 0; i < n; i++) {
-        if (i > 0) {
-            printf("; ");
-        }
-        printf("%Lf", A[i][n]);
-    }
-    printf(")}\n");
 }
 
 int main() {
     int n;
     long double A[MAX][MAX+1];
 
-    lerEntrada("entrada05.txt", &n, A);
-
-    printf("Matriz aumentada original:\n");
-    imprimirMatriz(n, A, (int[MAX]){0}, 0);
+    lerEntrada("entrada01.txt", &n, A);
 
     gaussJordan(n, A);
 
