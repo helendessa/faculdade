@@ -212,7 +212,7 @@ void gaussSeidel(int n, long double A[MAX][MAX+1], int maxIteracoes, long double
         }
 
         for (int i = 0; i < n; i++) {
-            long double sigma = 0.0;
+            long double sigma = 0;
 
             for (int j = 0; j < i; j++) {
                 sigma += A[i][j] * x[j];
@@ -229,7 +229,9 @@ void gaussSeidel(int n, long double A[MAX][MAX+1], int maxIteracoes, long double
         for (int i = 0; i < n; i++) {
             printf(ANSI_COLOR_GREEN"x%d" ANSI_COLOR_RESET" = %.10Lf\n", i + 1, x[i]);
         }
-        printf("\n");
+
+        long double norma = calcularNorma(n, x, xo);
+        printf(ANSI_COLOR_GREEN "Epsilon%d" ANSI_COLOR_RESET " = %.20Lf\n\n" ANSI_COLOR_RESET, k, norma);
 
         if (calcularNorma(n, x, xo) <= epsilon) {
             printf("\n" ANSI_COLOR_HIGHINTENSITY_RED "S = {");
