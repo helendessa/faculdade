@@ -34,7 +34,7 @@ void imprimirMatriz(int n, long double A[MAX][MAX+1], int iteracao) {
     printf("Iteração %d:\n", iteracao);
     for (int i = 0; i < n; i++) {
         for (int j = 0; j <= n; j++)
-            printf("%15.10Lf ", A[i][j]);
+            printf("%.08Lf   ", A[i][j]);
         printf("\n");
     }
     printf("\n");
@@ -103,6 +103,17 @@ bool pivotamento(int n, long double A[MAX][MAX+1], int ordem[MAX], int j) {
     return true;
 }
 
+/* Função para ajustar valores muito pequenos para zero */
+void ajustarValoresPequenos(int n, long double A[MAX][MAX+1]) {
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j <= n; j++) {
+            if (fabsl(A[i][j]) < TOL) {
+                A[i][j] = 0.0;
+            }
+        }
+    }
+}
+
 /* Gauss-Jordan */
 void gaussJordan(int n, long double A[MAX][MAX+1]) {
     int ordem[MAX];
@@ -128,18 +139,21 @@ void gaussJordan(int n, long double A[MAX][MAX+1]) {
             }
         }
 
+        ajustarValoresPequenos(n, A); // Ajusta valores pequenos após cada iteração
         imprimirMatriz(n, A, j + 1);
     }
 
+    ajustarValoresPequenos(n, A); // Ajusta valores pequenos antes de imprimir a solução final
+
     if (spd) {
         printf("Sistema Possível e Determinado (SPD)\n");
-        printf("S = {(");
+        printf("S = {");
         for (int i = 0; i < n; i++) {
             if (i > 0)
                 printf("; ");
             printf("%Lf", A[i][n]);
         }
-        printf(")}\n");
+        printf("}\n");
     }
 }
 
@@ -147,7 +161,7 @@ int main() {
     int n;
     long double A[MAX][MAX+1];
 
-    lerEntrada("entrada01.txt", &n, A);
+    lerEntrada("entrada12.txt", &n, A);
 
     gaussJordan(n, A);
 
