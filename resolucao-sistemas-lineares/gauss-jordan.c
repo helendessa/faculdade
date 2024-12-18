@@ -6,7 +6,17 @@
 #define MAX 20 // Tamanho máximo da matriz
 #define TOL 1e-10 // Tolerância para lidar com valores próximos de zero
 
-bool spd = true; // Variável global para rastrear se o sistema é SPD
+/* Códigos de escape ANSI para cores */
+#define ANSI_COLOR_BLUE "\x1b[1;34m"
+#define ANSI_COLOR_CYAN "\x1b[0;36m"
+#define ANSI_COLOR_PURPLE "\x1b[1;35m"
+#define ANSI_COLOR_GREEN "\x1b[32m"
+#define ANSI_COLOR_RED "\x1b[1;31m"
+#define ANSI_COLOR_RESET "\x1b[0m"
+#define ANSI_COLOR_ORANGE "\x1b[1;33m"
+#define ANSI_COLOR_HIGHINTENSITY_RED "\x1b[41m"
+
+bool spd = true;
 
 /* Leitura do arquivo */
 void lerEntrada(const char *nomeArquivo, int *n, long double A[MAX][MAX+1]) {
@@ -31,10 +41,10 @@ void lerEntrada(const char *nomeArquivo, int *n, long double A[MAX][MAX+1]) {
 
 /* Impressão da matriz */
 void imprimirMatriz(int n, long double A[MAX][MAX+1], int iteracao) {
-    printf("Iteração %d:\n", iteracao);
+    printf(ANSI_COLOR_BLUE "Iteração %d:\n" ANSI_COLOR_RESET, iteracao);
     for (int i = 0; i < n; i++) {
         for (int j = 0; j <= n; j++)
-            printf("%.08Lf   ", A[i][j]);
+            printf("%Lf\t", A[i][j]);
         printf("\n");
     }
     printf("\n");
@@ -71,7 +81,7 @@ bool linhaTodaZero(int n, long double A[MAX][MAX+1], int linha) {
     return true;
 }
 
-/* Pivotamento completo */
+/* Pivotamento */
 bool pivotamento(int n, long double A[MAX][MAX+1], int ordem[MAX], int j) {
     int maxLinha = j, maxColuna = j;
     for (int i = j; i < n; i++) {
@@ -86,9 +96,9 @@ bool pivotamento(int n, long double A[MAX][MAX+1], int ordem[MAX], int j) {
     if (fabsl(A[maxLinha][maxColuna]) < TOL) {
         if (linhaTodaZero(n, A, maxLinha)) {
             if (fabsl(A[maxLinha][n]) > TOL)
-                printf("Sistema Impossível (SI)\n");
+                printf(ANSI_COLOR_RED "Sistema Impossível (SI)\n" ANSI_COLOR_RESET);
             else
-                printf("Sistema Possível Indeterminado (SPI)\n");
+                printf(ANSI_COLOR_RED"Sistema Possível Indeterminado (SPI)\n" ANSI_COLOR_RESET);
         }
         spd = false;
         return false;
@@ -103,12 +113,12 @@ bool pivotamento(int n, long double A[MAX][MAX+1], int ordem[MAX], int j) {
     return true;
 }
 
-/* Função para ajustar valores muito pequenos para zero */
+/* Ajusta valores muito pequenos para zero -- correção dos zeros negativos */
 void ajustarValoresPequenos(int n, long double A[MAX][MAX+1]) {
     for (int i = 0; i < n; i++) {
         for (int j = 0; j <= n; j++) {
             if (fabsl(A[i][j]) < TOL) {
-                A[i][j] = 0.0;
+                A[i][j] = 0;
             }
         }
     }
@@ -139,21 +149,21 @@ void gaussJordan(int n, long double A[MAX][MAX+1]) {
             }
         }
 
-        ajustarValoresPequenos(n, A); // Ajusta valores pequenos após cada iteração
+        ajustarValoresPequenos(n, A); // Ajusta valores proximos de 0 depois de cada iteracao
         imprimirMatriz(n, A, j + 1);
     }
 
-    ajustarValoresPequenos(n, A); // Ajusta valores pequenos antes de imprimir a solução final
+    ajustarValoresPequenos(n, A); // Ajusta valores pequenos antes de imprimir solução funal
 
     if (spd) {
-        printf("Sistema Possível e Determinado (SPD)\n");
-        printf("S = {");
+        printf(ANSI_COLOR_RED "Sistema Possível e Determinado (SPD)\n" ANSI_COLOR_RESET);
+        printf(ANSI_COLOR_HIGHINTENSITY_RED "S = {" ANSI_COLOR_RESET);
         for (int i = 0; i < n; i++) {
             if (i > 0)
-                printf("; ");
-            printf("%Lf", A[i][n]);
+                printf(ANSI_COLOR_HIGHINTENSITY_RED "; " ANSI_COLOR_RESET);
+            printf(ANSI_COLOR_HIGHINTENSITY_RED "%Lf" ANSI_COLOR_RESET, A[i][n]);
         }
-        printf("}\n");
+        printf(ANSI_COLOR_HIGHINTENSITY_RED "}" ANSI_COLOR_RESET "\n");
     }
 }
 
