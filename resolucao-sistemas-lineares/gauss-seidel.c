@@ -51,8 +51,9 @@ void imprimirMatriz(int n, long double A[MAX][MAX+1], int iteracao, bool escalon
     }
 
     for (int i = 0; i < n; i++) {
-        for (int j = 0; j <= n; j++)
+        for (int j = 0; j <= n; j++) {
             printf("%Lf\t ", A[i][j]);
+        }
         printf("\n");
     }
     printf("\n");
@@ -64,6 +65,17 @@ void trocarLinhas(long double A[MAX][MAX+1], int n, int i, int j) {
         long double temp = A[i][k];
         A[i][k] = A[j][k];
         A[j][k] = temp;
+    }
+}
+
+/* Ajusta valores muito pequenos para zero -- correção dos zeros negativos */
+void ajustarValoresPequenos(int n, long double A[MAX][MAX+1]) {
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j <= n; j++) {
+            if (fabsl(A[i][j]) < TOL) {
+                A[i][j] = 0.0;
+            }
+        }
     }
 }
 
@@ -105,6 +117,8 @@ bool escalonamento(int n, long double A[MAX][MAX+1]) {
                 A[j][k] -= fator * A[i][k];
         }
 
+        ajustarValoresPequenos(n, A);
+
         /* Verifica se há uma linha com todos os elementos iguais a zero */
         bool linhaNula = true;
         for (int j = 0; j <= n; j++) {
@@ -136,7 +150,7 @@ void verificaSassenfeld(int n, long double A[MAX][MAX+1]) {
         }
         beta[i] = soma / fabsl(A[i][i]);
 
-        printf("Soma = %Lf, A[%d][%d] = %Lf\n", soma, i, i, fabsl(A[i][i]));
+        printf("Soma = %Lf, A[%d][%d] = %Lf\n", soma, i, fabsl(A[i][i]));
         printf(ANSI_COLOR_GREEN "beta[%d] = " ANSI_COLOR_CYAN "%Lf\n" ANSI_COLOR_RESET, i, beta[i]);
 
         if (beta[i] > maxBeta) {
@@ -236,7 +250,7 @@ void gaussSeidel(int n, long double A[MAX][MAX+1], int maxIteracoes, long double
         long double erro = calculaErro(n, x, xo);
         printf(ANSI_COLOR_GREEN "Epsilon%d" ANSI_COLOR_RESET " = %.20Lf\n\n" ANSI_COLOR_RESET, k, erro);
 
-        if (calculaErro(n, x, xo) <= epsilon) {
+        if (erro <= epsilon) {
             printf("\n" ANSI_COLOR_HIGHINTENSITY_RED "S = {");
             for (int i = 0; i < n; i++) {
                 printf("%.10Lf", x[i]);
@@ -283,7 +297,7 @@ int main() {
     long double x[MAX];
 
     /* Vai de entrada01.txt à entrada13.txt */
-    lerEntrada("entrada01.txt", &n, A, &maxIteracoes, &epsilon);
+    lerEntrada("entrada11.txt", &n, A, &maxIteracoes, &epsilon);
 
     /* Imprime a matriz original */
     imprimirMatriz(n, A, 0, false);
