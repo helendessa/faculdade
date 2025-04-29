@@ -1,5 +1,5 @@
 body {
-    background-image: url(/assets/background.jpg);
+    /* background-image: url(/site-astrologia/assets/background.jpg);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -7,36 +7,57 @@ body {
     width: 100vw;
     overflow: auto;
     overflow-x: hidden;
-    background-attachment: fixed;
+    background-attachment: fixed; */
+    background: black;
 }
+
+.quintessential-regular {
+    font-family: "Quintessential", serif;
+    font-weight: 400;
+    font-style: normal;
+}  
 
 header {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    height: 60px;
-    background-color: rgba(83, 8, 133, 0.8);
-    color: white;
+    height: 90px;
+    color: #FFD700;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 0 20px;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Quintessential', 'Arial', sans-serif;
+    background-color: black;
+    backdrop-filter: blur(10px);
+    font-size: 1.5rem;
+    z-index: 1;
 }
 
 .menu {
     display: flex;
-    justify-content: center;
-    align-items: center ;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    margin: 10px;
     gap: 2rem;
     height: 60px;
 }
 
 .logo {
-    order: 0;
     display: flex;
+    justify-content: center;
     align-items: center;
+    height: 100px;
+    width: auto;
+    margin-top: 2px;
+}
+
+.logo img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
 }
 
 .menu-item {
