@@ -84,6 +84,17 @@ header {
     color: #a96be5;
 }
 
+.menu-item a {
+    text-decoration: none;
+    color: #FFD700;
+}
+
+.menu-item a:hover {
+    text-decoration: none;
+    color: #a96be5;
+    transition: color 0.3s ease;
+}
+
 .dropdown {
     position: relative;
 }
@@ -110,8 +121,19 @@ header {
 
 .dropdown-content a:hover {
     background-color: #a96be5;
+    transition: color 0.3s ease;
 }
 
 .dropdown:hover .dropdown-content {
     display: block;
+}
+
+footer {
+    position: sticky;
+    bottom: 0;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-top: auto;
+    z-index: 1;
 }
