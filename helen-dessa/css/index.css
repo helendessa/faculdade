@@ -1,0 +1,38 @@
+@import url('https://fonts.cdnfonts.com/css/edge-of-the-galaxy');
+/* https://www.cdnfonts.com/edge-of-the-galaxy.font */
+
+/* @font-face {
+    font-family: "Roddenberry";
+    src: url('../fonts/roddenberry-font/Roddenberry-DgLm.ttf') format('truetype');    
+} */
+
+@font-face {
+    font-family: "Final Frontier Old Style";
+    src: url('../fonts/final-frontier-old-style-font/FinalFrontierOldStyle-8Pg.ttf') format('truetype');    
+}
+
+
+:root {
+    --title-color: rgba(242, 195, 0, 1);
+    --font-family: "Final Frontier Old Style", Verdana;
+    --font-size: 80px;
+    --bg-color: #000;
+}
+
+html {
+    background-color: var(--bg-color);
+}
+
+h1 {
+    font-family: var(--font-family);
+    color: var(--title-color);
+    font-size: var(--font-size);
+    text-align: center;
+    margin-top: 20px;
+    font-style: italic;
+}
+
+p#mr-spock {
+    color: red;
+    font-size: 40px;
+}

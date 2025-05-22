@@ -82,6 +82,7 @@ header {
 
 .menu-item:hover {
     color: #a96be5;
+    transition: color 0.3s ease;
 }
 
 .menu-item a {
@@ -120,6 +121,7 @@ header {
 }
 
 .dropdown-content a:hover {
+    color: #fff;
     background-color: #a96be5;
     transition: color 0.3s ease;
 }
@@ -128,12 +130,60 @@ header {
     display: block;
 }
 
+div.text {
+    display: flex;
+    flex-direction: column;
+    max-width: auto;
+    padding: 50px;
+    margin: 0 130px;
+}
+
+div.text h1 {
+    margin-top: 100px;
+    color: #FFD700;
+    font-family: 'Quintessential', 'Arial', sans-serif;
+    align-self: center;
+}
+
+div.text h2 {
+    color: #FFD700;
+    font-family: 'Quintessential', 'Arial', sans-serif;
+    align-self: left;
+}
+
+div.text h1:hover {
+    color: #a96be5;
+    transition: color 0.3s ease;
+}
+
+div.text p {
+    color: white;
+    text-align: justify;
+    line-height: 1.5;
+    text-indent: 2em;
+    margin-top: 10px;
+    margin-bottom: 10px;;
+}
+
 footer {
-    position: sticky;
+    position: relative;
     bottom: 0;
     color: white;
     text-align: center;
     padding: 10px;
     margin-top: auto;
     z-index: 1;
+}
+
+.highlight {
+    background-color: rgba(255, 215, 0, 0.6);
+    color: black;
+    border-radius: 5px;
+    padding: 2px;
+}
+
+.highlight:hover {
+    background-color: rgba(255, 215, 0, 0.8);
+    color: black;
+    transition: background-color 0.3s ease;
 }
