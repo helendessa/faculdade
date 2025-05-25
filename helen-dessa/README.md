@@ -19,7 +19,7 @@ Terminal principal de acesso aos sistemas da nave, já se entra com acesso autor
 Visualização dos dados do Spock, como dados pessoais, histórico médico e habilidades.
 
 ### Nave
-Mapa interativo da USS Enterprise com algumas estatísticas importantes (umas baseadadas na série e outras somente por estética).
+Mapa da USS Enterprise com algumas estatísticas importantes (umas baseadadas na série e outras somente por estética).
 
 ### Diário de Bordo
 Registro de atividades do Spock, baseado em conteúdo da franquia.

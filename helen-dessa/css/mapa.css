@@ -91,7 +91,11 @@ section#conteudo-principal h1 {
     animation-delay: 2.0s;
     background-color: #FF9E3D;
     box-shadow: 0 0 10px #FF9E3D, 0 0 20px #FF9E3D;
-} */
+} 
+Tirei alguns pontos porque estava tendo dificuldade para colocá-los
+na posição correta, mas penso em tentar fazer isso depois, com localizações
+reais (baseadas na série), aí vou aproveitar eles, então deixei o código aí.    
+*/
 
 .ponto-7 {
     top: 48%;

@@ -15,7 +15,7 @@ html, body {
     cursor: url('../images/starfleet.cur'), auto;
 }
 
-/* Pointer */
+/* Pointer - queria entender o motivo de não ter funcionado com extensão .ani */
 a, button, [role="button"], .ponto-piscante, li.bloco-menu {
     cursor: url('../images/phaser.cur'), pointer !important;
 }
