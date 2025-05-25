@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Mapa da Enterprise - Interface LCARS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/mapa.css">
+</head>
+<body>
+    <main id="moldura">
+        <!-- Barra Superior -->
+        <div id="segmento-superior"></div>
+        <header id="barra-superior">
+            <div id="etiqueta-superior">USS ENTERPRISE • NCC-1701</div>
+        </header>
+        
+        <!-- Menu Lateral Esquerdo -->
+        <nav id="painel-lateral">
+            <ul class="lista-menu">
+                <li class="bloco-menu tipo-1"><a href="../index.html">INÍCIO</a></li>
+                <li class="bloco-menu tipo-2"><a href="dados.html">DADOS PESSOAIS</a></li>
+                <li class="bloco-menu tipo-3 ativo">NAVE</li>
+                <li class="bloco-menu tipo-2"><a href="diario.html">DIÁRIO DE BORDO</a></li>
+                <li class="espaco-menu"></li>
+                <li class="bloco-menu tipo-3"><a href="configuracoes.html">CONFIGURAÇÕES</a></li>
+            </ul>
+        </nav>
+        
+        <!-- Conteúdo Principal -->
+        <section id="conteudo-principal">
+            <h1>MAPA ENTERPRISE</h1>
+            
+            <div class="mapa-container">
+                <!-- Esquema Visual da Nave -->
+                <div class="esquema-nave">
+                    <img src="../images/enterprise.png" alt="Esquema USS Enterprise">
+                    <!-- Pontos na Nave -->
+                    <div class="ponto-piscante ponto-1"></div>
+                    <div class="ponto-piscante ponto-2"></div>
+                    <div class="ponto-piscante ponto-3"></div>
+                    <div class="ponto-piscante ponto-4"></div>
+                    <div class="ponto-piscante ponto-5"></div>
+                    <div class="ponto-piscante ponto-6"></div>
+                    <div class="ponto-piscante ponto-7"></div>
+                </div>
+                
+                <!-- Blocos de Informações -->
+                <div class="info-nave">
+                    <!-- Especificações Técnicas -->
+                    <div class="info-bloco tipo-1">
+                        <h2>Especificações Técnicas</h2>
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <div class="info-label">CLASSE</div>
+                                <div class="info-valor">Constitution</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">REGISTRO</div>
+                                <div class="info-valor">NCC-1701</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">LANÇAMENTO</div>
+                                <div class="info-valor">2245</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">COMPRIMENTO</div>
+                                <div class="info-valor">288,6 metros</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">TRIPULAÇÃO</div>
+                                <div class="info-valor">430 pessoas</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">VELOCIDADE</div>
+                                <div class="info-valor">Dobra 8 (máx.)</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Sistemas de Propulsão 
+                        Mostra especificações do sistema de propulsão
+                    -->
+                    <div class="info-bloco tipo-2">
+                        <h2>Sistemas de Propulsão</h2>
+                        <div class="sistema-item">
+                            <div class="sistema-nome">MOTORES DE DOBRA</div>
+                            <div class="sistema-valor">2x Cristais de Dilithium</div>
+                        </div>
+                        <div class="sistema-item">
+                            <div class="sistema-nome">IMPULSORES</div>
+                            <div class="sistema-valor">4x Propulsores de Fusão</div>
+                        </div>
+                        <div class="sistema-item">
+                            <div class="sistema-nome">MANOBRADORES</div>
+                            <div class="sistema-valor">Série RCS-12</div>
+                        </div>
+                        <div class="sistema-barra">
+                            <div class="sistema-label">NÍVEL DE ENERGIA</div>
+                            <div class="barra-energia">
+                                <div class="nivel-energia"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Sistemas de Defesa
+                        Mostra como estão os sistemas de defesa da nave 
+                    -->
+                    <div class="info-bloco tipo-3">
+                        <h2>Sistemas de Defesa</h2>
+                        <div class="defesa-item">
+                            <div class="defesa-nome">ESCUDOS</div>
+                            <div class="defesa-valor">Geradores Tipo 3</div>
+                        </div>
+                        <div class="defesa-item">
+                            <div class="defesa-nome">PHASERS</div>
+                            <div class="defesa-valor">6x Arrays Tipo 2</div>
+                        </div>
+                        <div class="defesa-item">
+                            <div class="defesa-nome">TORPEDOS</div>
+                            <div class="defesa-valor">2x Lançadores Fotônicos</div>
+                        </div>
+                        <div class="defesa-status">
+                            <div class="status-label">STATUS DOS ESCUDOS</div>
+                            <div class="escudo-diagrama">
+                                <div class="escudo-segmento seg-1"></div>
+                                <div class="escudo-segmento seg-2"></div>
+                                <div class="escudo-segmento seg-3"></div>
+                                <div class="escudo-segmento seg-4"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Barra Inferior -->
+    <div id="segmento-inferior"></div>
+    <footer id="barra-inferior">
+        <div id="data-estelar">DATA ESTELAR: 67042.65</div>
+    </footer>
+</body>
+</html>

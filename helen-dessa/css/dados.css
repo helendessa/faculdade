@@ -1,0 +1,268 @@
+section#conteudo-principal h1 {
+    color: var(--cor-primaria);
+    font-size: 32px;
+    margin: 30px 0;
+    text-transform: uppercase;
+    font-family: 'Antonio', sans-serif;
+    text-align: center;
+}
+
+section#conteudo-principal h2 {
+    color: var(--cor-primaria);
+    font-size: 24px;
+    margin: 30px 0 20px;
+    text-transform: uppercase;
+    font-family: 'Antonio', sans-serif;
+    text-align: left;
+    border-bottom: 2px solid var(--cor-secundaria);
+    padding-bottom: 8px;
+}
+
+section#conteudo-principal h3 {
+    color: var(--cor-primaria);
+    font-size: 18px;
+    margin: 15px 0;
+    text-transform: uppercase;
+    font-family: 'Antonio', sans-serif;
+}
+
+section#conteudo-principal div#perfil-container {
+    display: flex;
+    flex-direction: row;
+    margin: 30px auto; /* Centraliza o container horizontalmente */
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+    min-height: 280px;
+    padding: 20px;
+    max-width: 900px; /* Limita a largura máxima */
+}
+
+section#conteudo-principal div#perfil-container div#foto-perfil {
+    width: 200px;
+    height: 240px;
+    flex-shrink: 0;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+section#conteudo-principal div#perfil-container div#foto-perfil img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 2px solid var(--cor-secundaria);
+    object-fit: cover;
+    object-position: center;
+}
+
+section#conteudo-principal div#perfil-container div#dados-pessoais {
+    flex-grow: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centraliza verticalmente */
+    align-items: flex-start;
+    text-align: left;
+    width: auto;
+}
+
+section#conteudo-principal div#perfil-container div#dados-pessoais div.campo-dados {
+    display: flex;
+    margin-bottom: 15px;
+    align-items: baseline;
+    justify-content: flex-start; /* Alinha à esquerda */
+    width: 100%;
+}
+
+div.campo-dados:first-child {
+    margin-top: 0;
+}
+
+div.campo-dados:last-child {
+    margin-bottom: 0;
+}
+
+div#dados-pessoais div.campo-dados span.rotulo-campo {
+    width: 180px;
+    color: var(--destaque-03);
+    font-weight: bold;
+    text-align: right;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+div#dados-pessoais div.campo-dados span.valor-campo {
+    color: var(--texto-claro);
+}
+
+div#dados-pessoais div.campo-dados div.secao-dados {
+    margin: 40px 0;
+}
+
+table.tabela-historico {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 2px;
+}
+
+table.tabela-historico th {
+    background-color: var(--cor-secundaria);
+    color: var(--texto-claro);
+    padding: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: normal;
+}
+
+table.tabela-historico td {
+    padding: 10px;
+    color: var(--texto-claro);
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+table.tabela-historico tr:nth-child(odd) td {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+div.painel-medico {
+    display: block;
+    margin: 30px auto; /* Centraliza o painel horizontalmente */
+    max-width: 900px; /* Limita a largura máxima */
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+div.graficos-medicos {
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+div.grafico {
+    margin-bottom: 20px;
+}
+
+div.titulo-grafico {
+    margin-bottom: 5px;
+    color: var(--destaque-01);
+    font-size: 14px;
+}
+
+div.linha-grafico {
+    height: 20px;
+    border-radius: 3px;
+    position: relative;
+    overflow: hidden;
+}
+
+div.linha-grafico.tipo-1 {
+    background-color: var(--destaque-01);
+    width: 85%;
+}
+
+div.linha-grafico.tipo-2 {
+    background-color: var(--destaque-02);
+    width: 95%;
+}
+
+div.linha-grafico.tipo-3 {
+    background-color: var(--destaque-03);
+    width: 70%;
+}
+
+div.linha-grafico::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+div.ultima-avaliacao {
+    width: 100%;
+}
+
+div.ultima-avaliacao p {
+    margin: 10px 0;
+    line-height: 1.4;
+    color: var(--texto-claro);
+    text-align: left;
+}
+
+ul.lista-habilidades {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+}
+
+li.habilidade-item {
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+li.habilidade-item.tipo-1 {
+    background-color: var(--destaque-01);
+    color: var(--cor-fundo);
+}
+
+li.habilidade-item.tipo-2 {
+    background-color: var(--destaque-02);
+    color: var(--texto-claro);
+}
+
+li.habilidade-item.tipo-3 {
+    background-color: var(--destaque-03);
+    color: var(--cor-fundo);
+}
+
+@media (max-width: 768px) {
+    div#perfil-container {
+        flex-direction: column;
+    }
+    
+    div#foto-perfil {
+        width: 150px;
+        height: 150px;
+        margin: 0 auto;
+    }
+    
+    div#foto-perfil img {
+        width: 100%;
+        height: 100%;
+    }
+    
+    div.campo-dados {
+        flex-direction: column;
+    }
+    
+    span.rotulo-campo {
+        width: 100%;
+        text-align: left;
+        margin-bottom: 5px;
+    }
+    
+    table.tabela-historico th, 
+    table.tabela-historico td {
+        font-size: 12px;
+        padding: 8px;
+    }
+}

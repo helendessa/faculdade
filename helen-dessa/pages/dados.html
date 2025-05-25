@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Dados Pessoais - Interface LCARS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/dados.css">
+</head>
+<body>
+    <main id="moldura">
+        <!-- Barra Superior -->
+        <div id="segmento-superior"></div>
+        <header id="barra-superior">
+            <div id="etiqueta-superior">USS ENTERPRISE • NCC-1701</div>
+        </header>
+        
+        <!-- Menu Lateral Esquerdo -->
+       <nav id="painel-lateral">
+            <ul class="lista-menu">
+                <li class="bloco-menu tipo-1"><a href="../index.html">INÍCIO</a></li>
+                <li class="bloco-menu tipo-2 ativo"><a href="dados.html">DADOS PESSOAIS</a></li>
+                <li class="bloco-menu tipo-3"><a href="mapa.html">NAVE</a></li>
+                <li class="bloco-menu tipo-2"><a href="diario.html">DIÁRIO DE BORDO</a></li>
+                <li class="espaco-menu"></li>
+                <li class="bloco-menu tipo-3"><a href="configuracoes.html">CONFIGURAÇÕES</a></li>
+            </ul>
+        </nav>
+        
+        <!-- Conteúdo Principal -- Basicamente dados do Spock -->
+        <section id="conteudo-principal">
+            <h1>DADOS PESSOAIS</h1>
+            
+            <div id="perfil-container">
+                <div id="foto-perfil">
+                    <img src="../images/spock.jpg" alt="Foto de Perfil do Spock">
+                </div>
+                <div id="dados-pessoais">
+                    <div class="campo-dados">
+                        <span class="rotulo-campo">NOME:</span>
+                        <span class="valor-campo">S'CHNTA SPOCK</span>
+                    </div>
+                    <div class="campo-dados">
+                        <span class="rotulo-campo">PATENTE:</span>
+                        <span class="valor-campo">COMANDANTE</span>
+                    </div>
+                    <div class="campo-dados">
+                        <span class="rotulo-campo">POSTO:</span>
+                        <span class="valor-campo">OFICIAL DE CIÊNCIAS / PRIMEIRO OFICIAL</span>
+                    </div>
+                    <div class="campo-dados">
+                        <span class="rotulo-campo">DATA NASCIMENTO:</span>
+                        <span class="valor-campo">2230</span>
+                    </div>
+                    <div class="campo-dados">
+                        <span class="rotulo-campo">LOCAL NASCIMENTO:</span>
+                        <span class="valor-campo">SHI'KAHR, VULCANO</span>
+                    </div>
+                    <div class="campo-dados">
+                        <span class="rotulo-campo">ESPÉCIE:</span>
+                        <span class="valor-campo">VULCANO/HUMANO</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="secao-dados">
+                <h2>HISTÓRICO DE SERVIÇO</h2>
+                <table class="tabela-historico">
+                    <thead>
+                        <tr>
+                            <th>ANO</th>
+                            <th>POSTO</th>
+                            <th>ATRIBUIÇÃO</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2250</td>
+                            <td>TENENTE</td>
+                            <td>USS ENTERPRISE NCC-1701, SOB COMANDO DO CAP. PIKE</td>
+                        </tr>
+                        <tr>
+                            <td>2265</td>
+                            <td>TENENTE-COMANDANTE</td>
+                            <td>USS ENTERPRISE NCC-1701, SOB COMANDO DO CAP. KIRK</td>
+                        </tr>
+                        <tr>
+                            <td>2266</td>
+                            <td>COMANDANTE</td>
+                            <td>OFICIAL DE CIÊNCIAS / PRIMEIRO OFICIAL</td>
+                        </tr>
+                        <tr>
+                            <td>2270</td>
+                            <td>COMANDANTE</td>
+                            <td>ACADEMIA DA FROTA ESTELAR (INSTRUTOR)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="secao-dados">
+                <h2>HISTÓRICO MÉDICO</h2>
+                <div class="painel-medico">
+                    <div class="graficos-medicos">
+                        <div class="grafico">
+                            <div class="titulo-grafico">BATIMENTOS CARDÍACOS</div>
+                            <div class="linha-grafico tipo-1"></div>
+                        </div>
+                        <div class="grafico">
+                            <div class="titulo-grafico">FUNÇÃO CEREBRAL</div>
+                            <div class="linha-grafico tipo-2"></div>
+                        </div>
+                        <div class="grafico">
+                            <div class="titulo-grafico">TENSÃO MUSCULAR</div>
+                            <div class="linha-grafico tipo-3"></div>
+                        </div>
+                    </div>
+                    <div class="ultima-avaliacao">
+                        <h3>ÚLTIMA AVALIAÇÃO</h3>
+                        <p>DATA ESTELAR: 67040.2</p>
+                        <p>MÉDICO RESPONSÁVEL: DR. LEONARD McCOY</p>
+                        <p>CONDIÇÃO GERAL: EXCELENTE</p>
+                        <p>OBSERVAÇÕES: PACIENTE APRESENTA PARÂMETROS BIOLÓGICOS COMPATÍVEIS COM SUA HERANÇA VULCANA/HUMANA. RECOMENDAÇÃO PARA MANTER PRÁTICA REGULAR DE MEDITAÇÃO.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="secao-dados">
+                <h2>ESPECIALIZAÇÕES E HABILIDADES</h2>
+                <ul class="lista-habilidades">
+                    <li class="habilidade-item tipo-1">FÍSICA QUÂNTICA</li>
+                    <li class="habilidade-item tipo-2">ASTROFÍSICA</li>
+                    <li class="habilidade-item tipo-3">XENOLINGUÍSTICA</li>
+                    <li class="habilidade-item tipo-1">FUSÃO MENTAL</li>
+                    <li class="habilidade-item tipo-2">COMBATE CORPO-A-CORPO</li>
+                    <li class="habilidade-item tipo-3">XADREZ 3D</li>
+                    <li class="habilidade-item tipo-1">VULCANO ANTIGO</li>
+                    <li class="habilidade-item tipo-2">KA'ATHYRA (LIRA VULCANA)</li>
+                </ul>
+            </div>
+        </section>
+    </main>        
+    <!-- Barra Inferior -->
+    <div id="segmento-inferior"></div>
+    <footer id="barra-inferior">
+        <div id="data-estelar">DATA ESTELAR: 67042.65</div>
+    </footer>
+</body>
+</html>

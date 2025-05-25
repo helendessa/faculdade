@@ -1,0 +1,372 @@
+div#alerta-sistema {
+    background-color: rgba(255, 0, 0, 0.2);
+    border-left: 4px solid var(--destaque-03);
+    padding: 20px;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+}
+
+.alerta-icone {
+    font-size: 32px;
+    color: var(--destaque-03);
+    margin-right: 20px;
+}
+
+.alerta-texto {
+    font-size: 24px;
+    color: var(--destaque-03);
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-right: 20px;
+}
+
+.alerta-codigo {
+    font-size: 14px;
+    color: var(--texto-claro);
+    opacity: 0.8;
+}
+
+/* Mensagem de construção */
+div#mensagem-construcao {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+div#mensagem-construcao h2 {
+    color: var(--cor-primaria);
+    border-bottom: 2px solid var(--cor-primaria);
+    display: inline-block;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+}
+
+div#mensagem-construcao p {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+/* Animação das fotos do Spock */
+section#spock-quadro {
+    max-width: 500px;
+    margin: 40px auto;
+    text-align: center;
+}
+
+section#spock-quadro div#quadro-moldura {
+    width: 100%;
+    height: 400px;
+    border: 4px solid var(--cor-primaria);
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 30px rgba(100, 255, 218, 0.4), 
+                inset 0 0 20px rgba(0, 0, 0, 0.8);
+    padding: 5px;
+}
+
+section#spock-quadro div#quadro-moldura div#quadro-animacao {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+section#spock-quadro div#quadro-moldura div#quadro-animacao .quadro-imagem {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0; 
+    transition: opacity 1.5s ease-in-out;
+}
+
+/* Animaçao individual porque junto não deu certo */
+.quadro-imagem:nth-child(1) {
+    animation: imagem1 40s infinite;
+}
+
+.quadro-imagem:nth-child(2) {
+    animation: imagem2 40s infinite;
+}
+
+.quadro-imagem:nth-child(3) {
+    animation: imagem3 40s infinite;
+}
+
+.quadro-imagem:nth-child(4) {
+    animation: imagem4 40s infinite;
+}
+
+.quadro-imagem:nth-child(5) {
+    animation: imagem5 40s infinite;
+}
+
+@keyframes imagem1 {
+    0%, 18% { opacity: 1; }
+    20%, 100% { opacity: 0; }
+}
+
+@keyframes imagem2 {
+    0%, 18% { opacity: 0; }
+    20%, 38% { opacity: 1; }
+    40%, 100% { opacity: 0; }
+}
+
+@keyframes imagem3 {
+    0%, 38% { opacity: 0; }
+    40%, 58% { opacity: 1; }
+    60%, 100% { opacity: 0; }
+}
+
+@keyframes imagem4 {
+    0%, 58% { opacity: 0; }
+    60%, 78% { opacity: 1; }
+    80%, 100% { opacity: 0; }
+}
+
+@keyframes imagem5 {
+    0%, 78% { opacity: 0; }
+    80%, 98% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+section#spock-quadro div#quadro-legenda {
+    margin-top: 15px;
+    font-style: italic;
+    color: var(--cor-primaria);
+    font-size: 16px;
+}
+
+section#spock-quadro div#quadro-status {
+    display: inline-block;
+    margin-top: 10px;
+    background-color: rgba(100, 255, 218, 0.2);
+    color: var(--cor-primaria);
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    animation: piscar 2s infinite;
+}
+
+/* Barra de progresso de manutenção */
+#progresso-container {
+    margin: 40px 0;
+    display: flex;
+    align-items: center;
+}
+ 
+#progresso-label {
+    width: 200px;
+    margin-right: 15px;
+    color: var(--destaque-01);
+    font-weight: bold;
+}
+
+#barra-progresso {
+    flex-grow: 1;
+    height: 18px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 9px;
+    overflow: hidden;
+    margin-right: 15px;
+    position: relative;
+}
+
+/* Muitas cores para deixar mais suave,
+com menos estava ficando terrível */
+#progresso-completo {
+    height: 100%;
+    width: 24%;
+    background: linear-gradient(
+        to right,
+        #ff0018 0%,
+        #ff2a0c 5%,
+        #ff3500 10%,
+        #ff5500 15%,
+        #ff8000 20%,
+        #ffa52c 25%,
+        #ffbb00 30%,
+        #ffcc00 35%,
+        #ffff41 40%,
+        #d2ff00 45%,
+        #aaff00 50%,
+        #55dd00 55%,
+        #008018 60%,
+        #00aa66 65%,
+        #0099aa 70%,
+        #0066aa 75%,
+        #0033cc 80%,
+        #0000f9 85%,
+        #3a00e0 90%,
+        #5000c7 92.5%,
+        #6b00a5 95%,
+        #86007d 97.5%,
+        #c40055 100%,
+        #ff0018 102.5%
+    );
+    background-size: 200% 100%;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    animation: arco-iris-fluido 12s linear infinite;
+    position: relative;
+    filter: blur(2.5px);
+}
+
+#progresso-percentual {
+    width: 50px;
+    text-align: right;
+    color: var(--cor-primaria);
+    font-weight: bold;
+}
+
+/* Status da equipe de manutenção */
+section#status-equipe {
+    margin: 40px 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+section#status-equipe div.equipe-membro {
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+section#status-equipe div.equipe-membro div.membro-nome {
+    font-weight: bold;
+    color: var(--texto-claro);
+}
+
+section#status-equipe div.equipe-membro div.membro-status {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+section#status-equipe div.equipe-membro div.membro-status.online {
+    background-color: rgba(100, 255, 100, 0.3);
+    color: #6AFF6A;
+}
+
+section#status-equipe div.equipe-membro div.membro-status.offline {
+    background-color: rgba(255, 100, 100, 0.3);
+    color: #FF6464;
+}
+
+/* Animação com transição de loop mais suave */
+@keyframes arco-iris-fluido {
+    0% {
+        background-position: 0% 50%;
+    }
+    95% {
+        background-position: 190% 50%;
+    }
+    100% {
+        background-position: 200% 50%;
+    }
+}
+
+@keyframes piscar {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+}
+
+/* Efeito de brilho suave na barra */
+#barra-progresso::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 30%;
+    background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    border-radius: 9px 9px 0 0;
+    pointer-events: none;
+}
+
+/* Efeito de glow + blur nas bordas da barra */
+#progresso-completo::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 25px;
+    height: 100%;
+    background: linear-gradient(
+        to left,
+        rgba(255, 255, 255, 0.4),
+        transparent
+    );
+    filter: blur(10px);
+}
+
+#progresso-completo::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 25px;
+    height: 100%;
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0.4),
+        transparent
+    );
+    filter: blur(10px);
+    z-index: 2;
+}
+
+/* Para criar efeito de escaneamento */
+#quadro-moldura::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(100, 255, 218, 0.2),
+        transparent
+    );
+    animation: scanner 5s linear infinite;
+}
+
+/* Efeito de menor nitidez da barra nas bordas */
+#barra-progresso {
+    position: relative;
+    overflow: visible;
+}
+
+#barra-progresso::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    background: inherit;
+    filter: blur(8px);
+    opacity: 0.7;
+    z-index: -1;
+    border-radius: 15px;
+    pointer-events: none;
+}
+
+@keyframes scanner {
+    0% { left: -150%; }
+    100% { left: 150%; }
+}

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Configurações - Interface LCARS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/configuracoes.css">
+</head>
+<body>
+    <main id="moldura">
+        <!-- Barra Superior -->
+        <div id="segmento-superior"></div>
+        <header id="barra-superior">
+            <div id="etiqueta-superior">USS ENTERPRISE • NCC-1701</div>
+        </header>
+        
+        <!-- Menu Lateral Esquerdo -->
+        <nav id="painel-lateral">
+            <ul class="lista-menu">
+                <li class="bloco-menu tipo-1"><a href="../index.html">INÍCIO</a></li>
+                <li class="bloco-menu tipo-2"><a href="dados.html">DADOS PESSOAIS</a></li>
+                <li class="bloco-menu tipo-3"><a href="mapa.html">NAVE</a></li>
+                <li class="bloco-menu tipo-2"><a href="diario.html">DIÁRIO DE BORDO</a></li>
+                <li class="espaco-menu"></li>
+                <li class="bloco-menu tipo-3 ativo">CONFIGURAÇÕES</li>
+            </ul>
+        </nav>
+        
+        <!-- Conteúdo Principal -->
+        <section id="conteudo-principal">
+            <h1>CONFIGURAÇÕES DO SISTEMA</h1>
+            
+            <div id="alerta-sistema">
+                <div class="alerta-icone">&#9888;</div>
+                <div class="alerta-texto">SISTEMA EM MANUTENÇÃO</div>
+                <div class="alerta-codigo">CÓDIGO ERRO: VN-1701-SPC</div>
+            </div>
+            
+            <div id="mensagem-construcao">
+                <h2>MÓDULO EM CONSTRUÇÃO</h2>
+                <p>A equipe de desenvolvimento está trabalhando nesta seção,
+                    sob a supervisão da Comandante Janaína Faustino.</p>
+                <p>Estimativa para conclusão: Data Estelar 67089.5</p>
+            </div>
+            
+            <!-- Quadro animado do Spock -->
+            <section id="spock-quadro">
+                <div id="quadro-moldura">
+                    <div id="quadro-animacao">
+                        <img class="quadro-imagem" src="../images/spock1.gif" alt="Spock imagem 1">
+                        <img class="quadro-imagem" src="../images/spock2.gif" alt="Spock imagem 2">
+                        <img class="quadro-imagem" src="../images/spock3.gif" alt="Spock imagem 3">
+                        <img class="quadro-imagem" src="../images/spock4.gif" alt="Spock imagem 4">
+                        <img class="quadro-imagem" src="../images/spock5.gif" alt="Spock imagem 5">
+                    </div>
+                </div>
+                <div id="quadro-legenda">
+                    "Um dos princípios básicos da lógica é que a solução mais simples é geralmente a correta."
+                </div>
+                <div id="quadro-status">SEQUÊNCIA DE IMAGENS ATIVA</div>
+            </section>
+            
+            <!-- Barra de progresso de manutenção -->
+            <section id="progresso-container">
+                <div id="progresso-label">PROGRESSO DA MANUTENÇÃO:</div>
+                <div id="barra-progresso">
+                    <div id="progresso-completo"></div>
+                </div>
+                <div id="progresso-percentual">24%</div>
+            </section>
+            
+            <!-- Status da equipe de manutenção -->
+            <section id="status-equipe">
+                <div class="equipe-membro">
+                    <div class="membro-nome">PRIMEIRO OFICIAL SPOCK</div>
+                    <div class="membro-status online">ONLINE</div>
+                </div>
+                <div class="equipe-membro">
+                    <div class="membro-nome">CHEFE DE ENGENHARIA SCOTT</div>
+                    <div class="membro-status offline">OFFLINE</div>
+                </div>
+                <div class="equipe-membro">
+                    <div class="membro-nome">ALFERES CHEKOV</div>
+                    <div class="membro-status offline">OFFLINE</div>
+                </div>
+            </section>
+        </section>
+    </main>
+    
+    <!-- Barra Inferior -->
+    <div id="segmento-inferior"></div>
+    <footer id="barra-inferior">
+        <div id="data-estelar">DATA ESTELAR: 67042.65</div>
+    </footer>
+</body>
+</html>

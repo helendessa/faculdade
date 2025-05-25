@@ -1,17 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spock</title>
-    <link rel="stylesheet" href="/helen-dessa/css/index.css">
+    <title>Interface LCARS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
-    <header>
-        <h1>Star Trek</h1>
-        <p id="mr-spock">Mr. Spock</p>
-    </header>
-    
-    
+    <main id="moldura">
+        <!-- 
+            Segmento Superior
+            - Barra: arredonda canto superior esquerdo
+            - Etiqueta: identifica a nave
+        -->
+        <div id="segmento-superior"></div>
+        <header id="barra-superior">
+            <div id="etiqueta-superior">USS ENTERPRISE &bull; NCC-1701</div>
+        </header>
+        
+        <!-- Menu Lateral Esquerdo -->
+        <nav id="painel-lateral">
+            <ul class="lista-menu">
+                <li class="bloco-menu tipo-1 ativo"><a href="index.html">INÍCIO</a></li>
+                <li class="bloco-menu tipo-2"><a href="pages/dados.html">DADOS PESSOAIS</a></li>
+                <li class="bloco-menu tipo-3"><a href="pages/mapa.html">NAVE</a></li>
+                <li class="bloco-menu tipo-2"><a href="pages/diario.html">DIÁRIO DE BORDO</a></li>
+                <li class="espaco-menu"></li>
+                <li class="bloco-menu tipo-3"><a href="pages/configuracoes.html">CONFIGURAÇÕES</a></li>
+            </ul>
+        </nav>
+        
+        <!-- Conteúdo Principal -->
+        <section id="conteudo-principal">
+            <h1>TERMINAL DE SISTEMAS PRIMÁRIOS</h1>
+            <div id="logo">
+                <img src="/helen-dessa/images/ufp-logo.png" alt="Logo da Federação Unida dos Planetas">
+            </div>
+            <h2 class="subtitulo">FEDERAÇÃO UNIDA DOS PLANETAS</h2>
+            <h1 id="acesso-autorizado">ACESSO AUTORIZADO</h1>
+            <p id="janaina">Visualização do computador pessoal do Primeiro Oficial
+                de Ciência, S'Chnta Spock, concedida à Janaína Faustino, Comandante 
+                de Desenvolvimento Web da USS Enterprise, até o final de sua manutenção.
+            </p>
+        </section>
+    </main>        
+    <!-- 
+        Barra Inferior:
+        - Segmento inferior: arredondado canto inferior esquerdo
+        - Barra inferior com data estelar
+    -->
+    <div id="segmento-inferior"></div>
+    <footer id="barra-inferior">
+        <div id="data-estelar">DATA ESTELAR: 67042.65</div>
+    </footer>
 </body>
 </html>

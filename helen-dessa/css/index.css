@@ -1,47 +1,59 @@
-@import url('https://fonts.cdnfonts.com/css/edge-of-the-galaxy');
-/* https://www.cdnfonts.com/edge-of-the-galaxy.font */
-
-/* @font-face {
-    font-family: "Roddenberry";
-    src: url('../fonts/roddenberry-font/Roddenberry-DgLm.ttf') format('truetype');    
-} */
-
-@font-face {
-    font-family: "Final Frontier Old Style";
-    src: url('../fonts/final-frontier-old-style-font/FinalFrontierOldStyle-8Pg.ttf') format('truetype');    
+section#conteudo-principal .logo {
+    width: 300px;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
 }
 
-
-:root {
-    --title-color: rgba(242, 195, 0, 1);
-    --font-family: "Final Frontier Old Style", Verdana;
-    --font-size: 80px;
-    --bg-color: #000;
+section#conteudo-principal .logo img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
 }
 
-html {
-    background-color: var(--bg-color);
-    cursor: url('../images/Spock.cur'), auto;
+section#conteudo-principal h1 {
+    color: var(--cor-primaria);
+    font-size: 32px;
+    margin: 40px 0;
+    text-transform: uppercase;
+    font-family: 'Antonio', sans-serif;
 }
 
-header {
-    position: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+section#conteudo-principal h2 {
+    color: var(--cor-primaria);
+    margin-top: -15px;
+    text-transform: uppercase;
 }
 
-h1 {
-    font-family: var(--font-family);
-    color: var(--title-color);
-    font-size: var(--font-size);
-    text-align: center;
-    font-style: italic;
-    margin: 30px 0 0 5px;
+section#conteudo-principal p#janaina {
+    color: var(--texto-claro);
+    font-size: 18px;
+    margin-top: 20px;
+    text-transform: uppercase;
 }
 
-p#mr-spock {
-    color: red;
-    font-size: 40px;
-    margin: 0;
+section#conteudo-principal h1#acesso-autorizado {
+    color: var(--cor-terciaria);
+    margin-top: 40px;
+    text-transform: uppercase;
+    font-size: 36px;
+}
+
+section#conteudo-principal h2.subtitulo {
+    font-size: 24px;
+    text-transform: uppercase;
+    color: var(--cor-primaria);
+}
+
+/* Conexão menu lateral/conteúdo */
+.conector {
+    position: absolute;
+    top: 60px;
+    left: 80px;
+    width: calc(170px + (100% - 170px - 20px) / 3 - 80px);
+    height: 40px;
+    background: var(--cor-secundaria);
+    z-index: 1;
 }
