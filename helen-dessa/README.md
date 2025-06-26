@@ -24,6 +24,9 @@ Mapa da USS Enterprise com algumas estatísticas importantes (umas baseadadas na
 ### Diário de Bordo
 Registro de atividades do Spock, baseado em conteúdo da franquia.
 
+### Recomendação
+Página de receitas do Hannibal Lecter, fortemente recomendada pelo Spock, em um universo paralelo.
+
 ### Configurações
 Painel de controle do sistema, ainda em fase de construção.
 
