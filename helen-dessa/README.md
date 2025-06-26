@@ -26,6 +26,7 @@ Registro de atividades do Spock, baseado em conteúdo da franquia.
 
 ### Recomendação
 Página de receitas do Hannibal Lecter, fortemente recomendada pelo Spock, em um universo paralelo.
+Volta ao site principal ao pressionar o botão "Voltar ao site principal" no final da página.
 
 ### Configurações
 Painel de controle do sistema, ainda em fase de construção.
